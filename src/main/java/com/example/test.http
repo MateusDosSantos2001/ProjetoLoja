@@ -3,11 +3,6 @@
 //busca todos os produtos.
 GET http://localhost:5000/produtos/ HTTP/1.1
 
-
-###
-//busca em produtos por alguma categoria.
-GET http://localhost:5000/produtos/?nome=Mineirinho HTTP/1.1
-
 ###
 //busca em produtos por id.
 GET http://localhost:5000/produtos/1/ HTTP/1.1
@@ -51,11 +46,6 @@ Content-Type: application/json; charset=UTF-8
 ###
 //busca todos os users.
 GET http://localhost:5000/users/ HTTP/1.1
-
-
-###
-//busca em users por alguma categoria.
-GET http://localhost:5000/users/?nome=carlos HTTP/1.1
 
 ###
 //busca em users por id.

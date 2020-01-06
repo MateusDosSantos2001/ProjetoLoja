@@ -19,36 +19,42 @@ public class User {
         this.sobrenome = sobrenome;
         this.senha = senha;
     }
+
      /**
      * @return the nome
      */
     public String getNome() {
         return this.nome;
     }
+
     /**
      * @param nome the nome to set
      */
     public void setNome(String nome) {
         this.nome = nome;
     }
+
     /**
      * @return the Sobrenome
      */
     public String getSobrenome() {
         return this.sobrenome;
     }
+
     /**
      * @param sobrenome the sobrenome to set
      */
     public void setSobrenome(String sobrenome) {
         this.sobrenome = sobrenome;
     }
+
     /**
      * @return the senha
      */
     public Long getSenha() {
         return this.senha;
     }
+
     /**
      * @param senha the senha to set
      */
