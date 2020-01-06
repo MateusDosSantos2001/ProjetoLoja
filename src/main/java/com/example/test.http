@@ -23,7 +23,7 @@ GET https://source.unsplash.com/random HTTP/1.1
 ###
 
 POST http://localhost:5000/produtos/
-Content-Type application/json; charset=UTF-8
+Content-Type: application/json; charset=UTF-8
 
 {
   "raca": "peixe",

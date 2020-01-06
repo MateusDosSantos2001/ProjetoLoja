@@ -10,28 +10,55 @@ public class Product {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
-    private String raca;
+    private String nome;
+    private String genero;
+    private String data_de_lancamento;
     private double valor;
     private int quantidade;
     protected Product() {}
-    public Product(String raca, 
-    double valor, int quantidade) {
-        this.raca = raca;
+    public Product(String nome, String genero, String data_de_lancamento, double valor, int quantidade) {
+        this.nome = nome;
+        this.genero = genero;
+        this.data_de_lancamento = data_de_lancamento;
         this.valor = valor;
         this.quantidade = quantidade;
     }
 
     /**
-     * @return the raca
+     * @return the nome
      */
-    public String getRaca() {
-        return this.raca;
+    public String getNome() {
+        return this.nome;
     }
     /**
-     * @param raca the raca to set
+     * @param raca the nome to set
      */
-    public void setRaca(String raca) {
-        this.raca = raca;
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    /**
+     * @return the genero
+     */
+    public String getGenero() {
+        return this.genero;
+    }
+    /**
+     * @param raca the nome to set
+     */
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }  
+    /**
+     * @return the nome
+     */
+    public String getDatadelancamento() {
+        return this.data_de_lancamento;
+    }
+    /**
+     * @param raca the nome to set
+     */
+    public void setDatadelancamento(String data_de_lancamento) {
+        this.data_de_lancamento = data_de_lancamento;
     }
 
     public double getValor() {
