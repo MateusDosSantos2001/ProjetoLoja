@@ -37,6 +37,15 @@ public class CartResource {
   public Optional<Cart> buscarCompra(@PathVariable Long id) {
     return this.repository.findById(id);
   }
+
+    /**
+   * Metodo de requisicao do tipo DELETE, para todos os itens
+   * @param id identificador das compras
+   */
+  @RequestMapping(value = "/cart", method = RequestMethod.DELETE)
+  public void removerCompras() {
+    this.repository.deleteAll();
+  }
   
   /**
    * Metodo de requisicao do tipo DELETE, para remover um item

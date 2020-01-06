@@ -24,6 +24,13 @@ public class Cart {
         this.user = user;
     }
 
+    @Override
+    public String toString() {
+      return String.format(
+          "[id=%d, product='%s', user='%s']",
+          id, product, user);
+    }
+
     /**
      * @return the id
      */
