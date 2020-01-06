@@ -72,6 +72,7 @@ public class UserResource {
       user.setNome(userParam.getNome());
       user.setSobrenome(userParam.getSobrenome());
       user.setSenha(userParam.getSenha());
+      this.repository.save(user);
   }
 
 }
