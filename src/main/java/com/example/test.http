@@ -103,8 +103,8 @@ POST http://localhost:5000/cart/ HTTP/1.1
 Content-Type: application/json; charset=UTF-8
 
 {
-  "produto": {"Id": 1},
-  "users": {"id": 2}
+  "produto": { "Id": 1 },
+  "users": { "id": 1 }
 }
 
 ###
@@ -113,6 +113,6 @@ PUT http://localhost:5000/cart/1/ HTTP/1.1
 Content-Type: application/json; charset=UTF-8
 
 {
-  "produto": "http://localhost:5000/produtos/ID/",
-  "users": "http://localhost:5000/users/ID/",
+  "produto": { "Id": 1 },
+  "users": { "id": 1 }
 }
