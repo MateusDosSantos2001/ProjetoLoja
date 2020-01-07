@@ -10,8 +10,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @RestController
 public class CartResource {
+  
   @Autowired
   private CartRepository repository;
+
+  @Autowired
+  private ProductRepository product;
+
+  @Autowired
+  private UserRepository user;
   /*
    * Construtor do CartResource, preparando o carrinho
    */
@@ -63,8 +70,8 @@ public class CartResource {
   @RequestMapping(value = "/cart/", 
   method = RequestMethod.POST)
   public Cart adicionarCompra(@RequestBody Cart cart) {
-    Product produto = cart.getProduct();
-    User user = cart.getUser();
+    Product produto = this.product.findById(cart.getProduct().getId()).get();
+    User user = this.user.findById(cart.getUser().getId()).get();
     return this.repository.save(new Cart(produto, user));
   }
 
