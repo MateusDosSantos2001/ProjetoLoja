@@ -61,7 +61,7 @@ POST http://localhost:5000/users/ HTTP/1.1
 Content-Type: application/json; charset=UTF-8
 
 {
-  "nome": "carlos",
+  "nome": "pedrãp",
   "sobrenome": "eduardo da fonseca",
   "senha": 995678
 }
@@ -98,21 +98,26 @@ DELETE http://localhost:5000/cart/1/ HTTP/1.1
 DELETE http://localhost:5000/cart/ HTTP/1.1
 
 ###
-//cria um novo item em cart(produto, users).
+//cria um novo item em cart(product, users).
 POST http://localhost:5000/cart/ HTTP/1.1
 Content-Type: application/json; charset=UTF-8
 
 {
-  "produto": { "Id": 1 },
-  "users": { "id": 1 }
+  "product": {"id": 1},
+  "user": {"id": 1}
 }
 
 ###
-//atualiza um item(produto, users), de cart por id.
+//atualiza um item(product, user), de cart por id.
 PUT http://localhost:5000/cart/1/ HTTP/1.1
 Content-Type: application/json; charset=UTF-8
 
 {
-  "produto": { "Id": 1 },
-  "users": { "id": 1 }
+  "product": { "id": 1 },
+  "user": { "id": 2 }
 }
+
+###
+//finaliza a compra e remove todos os itens do carrinho
+POST http://localhost:5000/cart/finalizar/ HTTP/1.1
+Content-Type: application/json; charset=UTF-8

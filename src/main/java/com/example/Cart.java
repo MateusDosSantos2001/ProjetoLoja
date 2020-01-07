@@ -20,14 +20,14 @@ public class Cart {
     protected Cart() {}
 
     public Cart(Product product, User user) {
-        this.product = product;
+        this.product= product;
         this.user = user;
     }
 
     @Override
     public String toString() {
       return String.format(
-          "[id=%d, product='%s', user='%s']",
+          "[id=%d, produto='%s', user='%s']",
           id, product, user);
     }
 

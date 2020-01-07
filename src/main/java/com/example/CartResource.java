@@ -1,5 +1,7 @@
 package com.example;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,10 +17,10 @@ public class CartResource {
   private CartRepository repository;
 
   @Autowired
-  private ProductRepository product;
+  private ProductRepository products;
 
   @Autowired
-  private UserRepository user;
+  private UserRepository users;
   
   /*
    * Construtor do CartResource, preparando o carrinho
@@ -70,9 +72,9 @@ public class CartResource {
    */
   @RequestMapping(value = "/cart/", method = RequestMethod.POST)
   public Cart adicionarCompra(@RequestBody Cart cart) {
-    Product produto = this.product.findById(cart.getProduct().getId()).get();
-    User user = this.user.findById(cart.getUser().getId()).get();
-    return this.repository.save(new Cart(produto, user));
+    Product product = this.products.findById(cart.getProduct().getId()).get();
+    User user = this.users.findById(cart.getUser().getId()).get();
+    return this.repository.save(new Cart(product, user));
   }
 
   /**
@@ -80,11 +82,18 @@ public class CartResource {
    * @param id identificador do item a ser atualizado na lista users
    */
   @RequestMapping(value="/cart/{id}", method=RequestMethod.PUT)
-  public Cart alterarItem(@PathVariable Long id, @RequestBody Cart userParam) {
+  public Cart alterarItem(@PathVariable Long id, @RequestBody Cart cartParam) {
       Cart item = this.repository.findById(id).get();
-      item.setProduct(userParam.getProduct());
-      item.setUser(userParam.getUser());
+      item.setProduct(this.products.findById(cartParam.getProduct().getId()).get());
+      item.setUser(this.users.findById(cartParam.getUser().getId()).get());
       return this.repository.save(item);
   }
 
+  @RequestMapping(value="/cart/finalizar/", method = RequestMethod.POST)
+  public Map<String, String> finalizarCompras(){
+    this.repository.deleteAll();
+    Map<String, String> res = new HashMap<>();
+    res.put("Mensagem", "Compra Finalizada");
+    return res;
+  }
 }
