@@ -89,6 +89,10 @@ public class CartResource {
       return this.repository.save(item);
   }
 
+  /**
+   * Metodo de requisicao do tipo POST, para finalizar o carrinho
+   * @return Mensagem de sucesso
+   */
   @RequestMapping(value="/cart/finalizar/", method = RequestMethod.POST)
   public Map<String, String> finalizarCompras(){
     this.repository.deleteAll();
