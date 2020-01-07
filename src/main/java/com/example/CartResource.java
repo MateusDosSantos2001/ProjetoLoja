@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @RestController
 public class CartResource {
-  
+
   @Autowired
   private CartRepository repository;
 
@@ -19,6 +19,7 @@ public class CartResource {
 
   @Autowired
   private UserRepository user;
+  
   /*
    * Construtor do CartResource, preparando o carrinho
    */
@@ -67,8 +68,7 @@ public class CartResource {
    * Metodo de requisicao do tipo POST, para adicionar um novo item
    * @return um novo item no carrinho
    */
-  @RequestMapping(value = "/cart/", 
-  method = RequestMethod.POST)
+  @RequestMapping(value = "/cart/", method = RequestMethod.POST)
   public Cart adicionarCompra(@RequestBody Cart cart) {
     Product produto = this.product.findById(cart.getProduct().getId()).get();
     User user = this.user.findById(cart.getUser().getId()).get();
@@ -79,8 +79,7 @@ public class CartResource {
    * Metodo de requisicao do tipo PUT, para atualizar um item existente
    * @param id identificador do item a ser atualizado na lista users
    */
-  @RequestMapping(value="/cart/{id}", 
-  method=RequestMethod.PUT)
+  @RequestMapping(value="/cart/{id}", method=RequestMethod.PUT)
   public Cart alterarItem(@PathVariable Long id, @RequestBody Cart userParam) {
       Cart item = this.repository.findById(id).get();
       item.setProduct(userParam.getProduct());

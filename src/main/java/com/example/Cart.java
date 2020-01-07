@@ -31,47 +31,27 @@ public class Cart {
           id, product, user);
     }
 
-    /**
-     * @return the id
-     */
     public Long getId() {
         return id;
     }
 
-    /**
-     * @param id the id to set
-     */
     public void setId(Long id) {
         this.id = id;
     }
 
-    /**
-     * @return the product
-     */
     public Product getProduct() {
         return product;
     }
 
-    /**
-     * @param product the product to set
-     */
     public void setProduct(Product product) {
         this.product = product;
     }
 
-    /**
-     * @return the user
-     */
     public User getUser() {
         return user;
     }
 
-    /**
-     * @param user the user to set
-     */
     public void setUser(User user) {
         this.user = user;
     }
-
-
 }
